@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de dados</title>
+    <link rel="stylesheet" href="atv_style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="header">
+        <div class="container">
+            <h1>Análise de Salario - 
+                <span class="brasil1">B</span><span class="brasil2">R</span> 
+            </h1>
+        </div>
+    </div>
+
+    <div class="graph">
+        <canvas id="lineChart" style="height: 100%; width:100%;"></canvas>
+    </div>
+
+    <div class="graph">
+        <canvas id="avgSalario" style="height: 100%; width:100%;"></canvas>
+    </div>
+    
+    <div class="graph">
+        <canvas id="pizzaChart" style="height: 100%; width:100%;"></canvas>
+    </div>
+
+</body>
+</html>
+<script>
+    const first = {
+        type: "line",
+        data: {
+            labels:["2011","2012","2013","2014","2015","2016","2017","2018","2019","2020","2021"],
+            datasets: [
+                {
+                    label: "Evolução do salário minimo",
+                    data: [540,622,678,724,788,880,937,954,998,1045,1100],
+                    backgroundColor: "#002776",
+                    borderColor: "#2196f3"
+                }
+            ]
+        },
+    
+         options: {
+            maintainAspectRatio: false
+         }
+    }
+
+    var mychartLine = new Chart(document.getElementById("lineChart"), first)
+
+    const second = {
+        type: "line",
+        data: {
+            labels:["Norte", "Nordeste", "Sudeste", "Sul", "Centro-Oeste"],
+            datasets: [
+                {
+                    label: "Média salarial por região",
+                    data: [1711, 1539, 2585, 2499, 2498],
+                    backgroundColor: "#002776",
+                    borderColor: "#2196f3"
+                }
+            ]
+        },
+    
+         options: {
+            maintainAspectRatio: false
+         }
+    }
+
+    var mychartLine2 = new Chart(document.getElementById("avgSalario"), second )
+
+    const third = {
+        type: "bar",
+        data: {
+            labels:["Norte", "Nordeste", "Sudeste", "Sul", "Centro-Oeste"],
+            datasets: [
+                {
+                    label: "Desemprego por região",
+                    data: [10.6,13.6,11.4,6.8,9.3],
+                    backgroundColor: "#002776",
+                   
+                }
+            ]
+        },
+    
+         options: {
+            maintainAspectRatio: false
+         }
+    }
+
+    var mychartPizza = new Chart(document.getElementById("pizzaChart"), third)
+
+</script>
